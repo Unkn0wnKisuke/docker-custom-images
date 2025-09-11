@@ -22,6 +22,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: .
+          file: python-node.Dockerfile
           push: true
           tags: unkn0wn876/python3.8-nodejs14:latest
 
