@@ -38,5 +38,6 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: docker-custom-images
+          run: ls -la
           short-description: "Last updated by bot on $(date)"
-          readme-filepath: README.md
+          readme-filepath: ../README.md
