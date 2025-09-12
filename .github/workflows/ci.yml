@@ -26,12 +26,11 @@ jobs:
           push: true
           tags: unkn0wn876/python3.8-nodejs14:latest
 
-      - name: check directory
-        run: pwd
 
-      - name: List files
-        run: ls -la
-    
+  dockerHubDescription:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v4 # v4.0.0
@@ -40,4 +39,3 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: unkn0wn876/python3.8-nodejs14
           short-description: "Last updated by bot on $(date)"
-          readme-filepath: ./README.md
