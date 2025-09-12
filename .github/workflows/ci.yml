@@ -44,12 +44,17 @@ jobs:
               # git remote set-url origin https://Unkn0wnKisuke:${GH_PAT_TOKEN}@github.com/Unkn0wnKisuke/docker-custom-images.git
 
               # Update README.md
-              today=$(date +%Y-%m-%d)
+              today=$(date +%Y-%m-%d\ %H:%M:%S)
               sed -i -E "s/Last updated by bot: .*/Last updated by bot: ${today}/" README.md
-              
-
+             
               git add README.md
-              git commit -m 'Updated Last Build Time ⏳ '
-              git push  --quiet
+              
+              if ! git diff --cached --quiet; then
+                  git commit -m 'Updated Last Build Time ⏳ '
+                  git push --quiet
+              else
+                  echo "No changes to commit."
+              fi
+             
 
     
