@@ -32,7 +32,7 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: Unkn0wnKisuke/docker-custom-images
-          readme-filepath: README.md
+          short-description: "Last updated by bot on $(date)"
       
       - name: check directory
         run: pwd
