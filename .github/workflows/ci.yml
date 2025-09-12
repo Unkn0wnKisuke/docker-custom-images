@@ -39,11 +39,6 @@ jobs:
         env:
          GH_PAT: ${{ secrets.GH_PAT_TOKEN }}  
         run: |
-#              git config --global user.email "actions@github.com" && git config --global user.name "github-actions"
-#              git remote set-url origin https://Unkn0wnKisuke:${GH_PAT_TOKEN}@github.com/Unkn0wnKisuke/docker-custom-images.git
-      #        git config --global user.name "UnknOwnkisuke" > /dev/null 2>&1
-       #       git config --global user.email phenix_jop@live.com > /dev/null 2>&1
-
               git config --global user.name "github-actions" > /dev/null 2>&1
               git config --global user.email actions@github.com > /dev/null 2>&1
               git remote set-url origin https://Unkn0wnKisuke:${GH_PAT_TOKEN}@github.com/Unkn0wnKisuke/docker-custom-images.git
@@ -51,6 +46,7 @@ jobs:
               # Update README.md
               today=$(date +%Y-%m-%d)
               sed -i -E "s/Last updated by bot: .*/Last updated by bot: ${today}/" README.md
+              
 
               git add README.md
               git commit -m '🗃 Updated python/node versions [skip ci]'
