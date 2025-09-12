@@ -1,3 +1,4 @@
+Last updated by bot: 
 
 The `latest` tag is currently:
 
