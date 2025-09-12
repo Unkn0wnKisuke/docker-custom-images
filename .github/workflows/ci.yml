@@ -28,8 +28,8 @@ jobs:
           push: true
           tags: unkn0wn876/python3.8-nodejs14:latest
 
-  dockerHubDescription:
-    steps:
+
+
       - uses: actions/checkout@v4
 
       - name: Update repo description
