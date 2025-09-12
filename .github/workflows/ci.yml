@@ -30,10 +30,23 @@ jobs:
           tags: unkn0wn876/python3.8-nodejs14:latest
 
 
-      - name: Update repo description
-        uses: peter-evans/dockerhub-description@v4 # v4.0.0
+    name: Update versions.json and README.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
         with:
-          username: ${{ vars.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: unkn0wn876/python3.8-nodejs14
-          short-description: "Last updated by bot on $(date)"
+          enable-cache: true
+      - name: Update versions.json and README.md, then commit and push changes (if any)
+        run: |
+          uv run dpn --verbose release
+              git config --global user.name "UnknOwnkisuke" > /dev/null 2>&1
+              git config --global user.email phenix_jop@live.com > /dev/null 2>&1
+
+              # Update README.md
+              today=$(date +%Y-%m-%d)
+              sed -i -E "s/Last updated by bot: .*/Last updated by bot: ${today}/" README.md
+
+              git add README.md
+              git commit -m '🗃 Updated python/node versions [skip ci]'
+              git push --quiet origin main
