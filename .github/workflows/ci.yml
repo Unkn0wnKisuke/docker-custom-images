@@ -2,9 +2,7 @@ name: ci
 
 on:
   push:
-    path: 
-      - README.md
-      - .github/workflows/ci.yml
+    branches: [main]
 
 jobs:
   docker:
