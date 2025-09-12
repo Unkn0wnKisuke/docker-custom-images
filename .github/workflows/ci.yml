@@ -39,9 +39,6 @@ jobs:
           enable-cache: true
       - name: Update README.md
         run: |
-          uv run dpn --verbose release
-           clean_checkout=$(git status --porcelain)
-          if [[ -n "${clean_checkout}" ]]; then
               git config --global user.name "UnknOwnkisuke" > /dev/null 2>&1
               git config --global user.email phenix_jop@live.com > /dev/null 2>&1
 
@@ -52,6 +49,3 @@ jobs:
               git add README.md
               git commit -m '🗃 Updated python/node versions [skip ci]'
               git push --quiet origin main
-              else
-                  echo "Nothing to do"
-              fi
