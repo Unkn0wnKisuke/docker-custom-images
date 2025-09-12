@@ -46,4 +46,4 @@ jobs:
 
               git add README.md
               git commit -m '🗃 Updated python/node versions [skip ci]'
-                 git push https://x-access-token:${{ secrets.PAT_TOKEN_O }}@github.com/Unkn0wnKisuke/docker-custom-images.git HEAD:main --quiet
+              git push https://x-access-token:${{ secrets.PAT_TOKEN_O }}@github.com/Unkn0wnKisuke/docker-custom-images.git HEAD:main --quiet
