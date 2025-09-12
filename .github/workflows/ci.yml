@@ -36,7 +36,10 @@ jobs:
         with:
           enable-cache: true
       - name: Update README.md
+        env:
+         GH_PAT: ${{ secrets.GH_PAT }}  
         run: |
+              git remote set-url origin https://Unkn0wnKisuke:${GH_PAT}@github.com/Unkn0wnKisuke/docker-custom-images.git
               git config --global user.name "UnknOwnkisuke" > /dev/null 2>&1
               git config --global user.email phenix_jop@live.com > /dev/null 2>&1
 
@@ -46,4 +49,9 @@ jobs:
 
               git add README.md
               git commit -m '🗃 Updated python/node versions [skip ci]'
-              git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Unkn0wnKisuke/docker-custom-images.git HEAD:main --quiet
+              git push  --quiet
+
+
+              
+  
+    
