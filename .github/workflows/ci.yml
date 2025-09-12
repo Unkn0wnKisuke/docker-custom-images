@@ -26,12 +26,6 @@ jobs:
           push: true
           tags: unkn0wn876/python3.8-nodejs14:latest
 
-      - name: check directory
-        run: pwd
-
-      - name: List files
-        run: ls -la
-
       - name: Update repo description
         uses: peter-evans/dockerhub-description@e98e4d1628a5f3be2be7c231e50981aee98723ae # v4.0.0
         with:
@@ -40,3 +34,9 @@ jobs:
           repository: Unkn0wnKisuke/docker-custom-images
           short-description: "Last updated by bot on $(date)"
           readme-filepath: README.md
+      
+      - name: check directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
