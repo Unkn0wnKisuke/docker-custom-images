@@ -38,11 +38,7 @@ jobs:
         with:
           enable-cache: true
       - name: Update README.md
-        run: |
-              git config --global user.name "UnknOwnkisuke" > /dev/null 2>&1
-              git config --global user.email phenix_jop@live.com > /dev/null 2>&1
-
-              # Update README.md
+        run: | # Update README.md
               today=$(date +%Y-%m-%d)
               sed -i -E "s/Last updated by bot: .*/Last updated by bot: ${today}/" README.md
 
