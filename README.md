@@ -17,4 +17,7 @@ The `latest` tag is currently:
 <li>git: latest</li>
 <li>curl: latest</li>
 </ul>
-<i>Created this image for an Angular 7 enterprise project i recently inherited. Needed an image for the CI/CD pipeline, could not find any to fit my specific need hence i created this.</i>
+
+<i><br>Created this image for an Angular 7 enterprise project i recently inherited. Needed an image for the CI/CD pipeline, could not find any to fit my specific need hence i created this.</i>
+
+<br>Tags
