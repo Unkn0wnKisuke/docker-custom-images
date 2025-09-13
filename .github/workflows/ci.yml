@@ -31,7 +31,30 @@ jobs:
     name: Update versions.json and README.md
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Update README.md
+        env:
+         GH_PAT: ${{ secrets.GH_PAT_TOKEN }}  
+        run: |
+              git config --global user.name "github-actions[bot]" > /dev/null 2>&1
+              git config --global user.email "github-actions[bot]@users.noreply.github.com" > /dev/null 2>&1
+              # git remote set-url origin https://Unkn0wnKisuke:${GH_PAT_TOKEN}@github.com/Unkn0wnKisuke/docker-custom-images.git
 
+              # Update README.md
+              today=$(date +%Y-%m-%d\ %H:%M:%S)
+              sed -i -E "s/Last updated by bot: .*/Last updated by bot: ${today}/" README.md
+             
+              git add README.md
+              
+              if ! git diff --cached --quiet; then
+                  git commit -m 'Updated Last Build Time ⏳ '
+                  git push --quiet
+              else
+                  echo "No changes to commit."
+              fi
 
 
       - uses: actions/checkout@v4
